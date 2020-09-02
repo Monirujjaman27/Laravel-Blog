@@ -31,7 +31,7 @@
 
     <!-- style.css  -->
     <link rel="stylesheet" href="{{ asset('admin') }}/css/style.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="hold-transition sidebar-mini">

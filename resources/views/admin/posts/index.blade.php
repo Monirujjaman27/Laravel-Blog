@@ -51,7 +51,8 @@
                                     @php $i= 1 @endphp
                                     @foreach( $allpost as $allpost)
                                     <tr>
-                                        <td><input name="id" type="hidden" value="{{ $allpost->id }}"></td>
+                                        <input type="hidden"name="_token" id="_token" value="{{ csrf_token() }}">
+                                        <input name="id" type="hidden" value="{{ $allpost->id }}">
                                         <td>{{ $i }}</td>
                                         <td>{{ ucfirst($allpost->title) }}</td>
                                         <td>
