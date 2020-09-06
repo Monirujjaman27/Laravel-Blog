@@ -23,6 +23,10 @@
     <!-- SimpleMDE -->
     <link rel="stylesheet" href="{{ asset('admin') }}/packages/simplemde/simplemde.min.css">
 
+    <!-- alertify -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- alertify themes/default.min -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin') }}/css/adminlte.min.css">
 
@@ -249,6 +253,7 @@
                                 <p>Post</p>
                             </a>
                         </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -301,15 +306,22 @@
     <script src="{{ asset('admin') }}/packages/codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('admin') }}/js/demo.js"></script>
-    <!-- Custom ajax code -->
-    <script src="{{ asset('admin') }}/js/appAjax.js"></script>
+    <!-- alertify -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- toastr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+
+    <!-- Custom ajax code -->
+    <script src="{{ asset('admin') }}/js/appAjax.js"></script>
+
+
+
     <!-- Page specific script -->
     <script>
+
     @if(Session::get('success'))
-    toastr.success("{{ Session::get('success') }}");
+        toastr.success("{{ Session::get('success') }}");
     @endif
 
 

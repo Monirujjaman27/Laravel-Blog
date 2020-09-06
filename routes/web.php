@@ -58,6 +58,6 @@ route::group(['prefix'=>'/home', 'middleware' =>['auth']],  function(){
 
     route::resource('category', 'CategoryController');
     route::resource('tag', 'TagController');
-    route::resource('post', 'postController');
-    route::post('post/delete', 'postController@delete')->name('post.delete');
+    route::resource('post', 'PostController');
+    Route::post('post/delete/{id}', 'PostController@delete')->name('post.delete');
 });

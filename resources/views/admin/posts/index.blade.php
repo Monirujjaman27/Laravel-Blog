@@ -43,6 +43,7 @@
                                         <th width="">Category</th>
                                         <th width="">Slug</th>
                                         <th width="">Tags</th>
+                                        <th width="">Create Date</th>
                                         <th width="">Author</th>
                                         <th width="">Action</th>
                                     </tr>
@@ -50,28 +51,27 @@
                                 <tbody>
                                     @php $i= 1 @endphp
                                     @foreach( $allpost as $allpost)
-                                    <tr>
+                                    <tr class="dataRow{{ $allpost->id }}" data-id="{{ $allpost->id }}">
                                         <input type="hidden"name="_token" id="_token" value="{{ csrf_token() }}">
-                                        <input name="id" type="hidden" value="{{ $allpost->id }}">
-                                        <td>{{ $i }}</td>
-                                        <td>{{ ucfirst($allpost->title) }}</td>
-                                        <td>
+                                        <input name="classes" type="hidden" value="dataRow">
+                                        <td width="5%">{{ $i }}</td>
+                                        <td width="10%">{{ ucfirst($allpost->title) }}</td>
+                                        <td width="10%">
                                             <img class="img-fluid img-cover" height="40px" width="40px"
                                                 src="{{ asset('/storage/post').'/'.$allpost->image }}"
                                                 alt="{{ $allpost->image }}">
                                         </td>
-                                        <td>{{ $allpost->description }}</td>
-                                        <td>{{ ucfirst($allpost->category->name) }} </td>
-                                        <td>{{ $allpost->slug }} </td>
-                                        <td><span class="badge bg-primary">{{ $allpost->id }}</span></td>
-                                        <td><span class="">{{ ucfirst($allpost->user->name) }}</span></td>
-                                        <td class="d-flex">
-                                            <a class="btn btn-xs btn-info "
-                                                href="{{ route('post.edit', [$allpost->id]) }}"><i
-                                                    class="fas fa-edit"></i> </a>
+                                        <td width="15%">{{ $allpost->description }}</td>
+                                        <td width="10%">{{ ucfirst($allpost->category->name) }} </td>
+                                        <td width="10%">{{ $allpost->slug }} </td>
+                                        <td width="10%"><span class="badge bg-primary">{{ $allpost->id }}</td>
+                                        <td width="10%">{{ $allpost->created_at->format('j - m - Y') }}</td>
+                                        <td width="10%">{{ ucfirst($allpost->user->name) }}</span></td>
+                                        <td width="10%" class="d-flex">
+                                            <a class="btn badge badge-warning btnEdit"
+                                                href="{{ route('post.edit', [$allpost->id]) }}">Edit </a>
 
-                                            <button type="submit" class="btn btn-xs btn-danger delteBtn"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button type="submit" class="btn badge badge-danger delteBtn ml-1"> Delete</button>
                                             <!-- <a class="btn btn-xs btn-success" href="{{ route('category.show', [$allpost->id]) }}"><i class="fas fa-eye"></i> </a> -->
                                         </td>
                                     </tr>

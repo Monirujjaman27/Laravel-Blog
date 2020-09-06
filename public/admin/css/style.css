@@ -1,3 +1,16 @@
 .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
 	height: 200px;
 }
+#postContent .card .card-header {
+	position: relative !important;
+
+}
+
+#postContent .card .card-header.catdtitle::after {
+	position: absolute;
+	content: "";
+	background: black;
+	width: 4px;
+	height: 20px;
+	left: 0;
+}
