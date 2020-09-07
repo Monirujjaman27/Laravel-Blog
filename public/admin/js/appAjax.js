@@ -1,4 +1,6 @@
-
+// {/* <li class="nav-item">
+// <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+// </li> */}
 // //meta token setup 
 // var _modal = $('#modalform');
 // var btnsave = $('.btnsave');

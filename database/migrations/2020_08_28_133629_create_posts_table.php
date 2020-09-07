@@ -24,6 +24,11 @@ class CreatePostsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::create('post_tag', function (Blueprint $table) {
+            
+            $table->integer('post_id');
+            $table->integer('tag_id');
+        });
     }
 
     /**
@@ -34,5 +39,6 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
+        Schema::dropIfExists('post_tag');
     }
 }

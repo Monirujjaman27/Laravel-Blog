@@ -11,7 +11,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li data-toggle="tooltip" title="Back Dashboard"  class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">Post List</li>
                     </ol>
                 </div><!-- /.col -->
@@ -28,53 +28,62 @@
                     <div class="card">
                         <div class="card-header">
                             <span>All Post</span>
-                            <a class="badge badge-info p-2 float-right" href="{{  route('post.create') }}"> Create new
+                            <a data-toggle="tooltip" title="Create a new Post" class="badge badge-info p-2 float-right" href="{{  route('post.create') }}"> Create new
                                 Post</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-sm table-bordered table-striped">
+                            <table id="example1" class="table table-sm table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="5%">No</th>
-                                        <th width="">Title</th>
-                                        <th width="">Image</th>
-                                        <th width="">Description</th>
-                                        <th width="">Category</th>
-                                        <th width="">Slug</th>
-                                        <th width="">Tags</th>
-                                        <th width="">Create Date</th>
-                                        <th width="">Author</th>
-                                        <th width="">Action</th>
+                                        <th width="1%">No</th>
+                                        <th width="10%">Title</th>
+                                        <th width="3%">Image</th>
+                                        <th width="20%">Description</th>
+                                        <th>Category</th>
+                                        <th>Slug</th>
+                                        <th>Tags</th>
+                                        <th>Create Date</th>
+                                        <th>Author</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $i= 1 @endphp
                                     @foreach( $allpost as $allpost)
-                                    <tr class="dataRow{{ $allpost->id }}" data-id="{{ $allpost->id }}">
-                                        <input type="hidden"name="_token" id="_token" value="{{ csrf_token() }}">
-                                        <input name="classes" type="hidden" value="dataRow">
-                                        <td width="5%">{{ $i }}</td>
-                                        <td width="10%">{{ ucfirst($allpost->title) }}</td>
-                                        <td width="10%">
-                                            <img class="img-fluid img-cover" height="40px" width="40px"
-                                                src="{{ asset('/storage/post').'/'.$allpost->image }}"
-                                                alt="{{ $allpost->image }}">
-                                        </td>
-                                        <td width="15%">{{ $allpost->description }}</td>
-                                        <td width="10%">{{ ucfirst($allpost->category->name) }} </td>
-                                        <td width="10%">{{ $allpost->slug }} </td>
-                                        <td width="10%"><span class="badge bg-primary">{{ $allpost->id }}</td>
-                                        <td width="10%">{{ $allpost->created_at->format('j - m - Y') }}</td>
-                                        <td width="10%">{{ ucfirst($allpost->user->name) }}</span></td>
-                                        <td width="10%" class="d-flex">
-                                            <a class="btn badge badge-warning btnEdit"
-                                                href="{{ route('post.edit', [$allpost->id]) }}">Edit </a>
+                                    
+                                        <tr class="dataRow{{ $allpost->id }}" data-id="{{ $allpost->id }}">
+                                            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                                            <input name="classes" type="hidden" value="dataRow">
+                                            <td>{{ $i }}</td>
+                                            <td>{{ ucfirst($allpost->title) }}</td>
+                                            <td data-toggle="tooltip" title="{{ $allpost->title }}" >
+                                                <img class="img-fluid img-cover" height="40px" width="40px"
+                                                    src="{{ asset('/storage/post').'/'.$allpost->image }}"
+                                                    alt="{{ $allpost->image }}">
+                                            </td>
+                                            <td>{{ $allpost->description }}</td>
+                                            <td>{{ ucfirst($allpost->category->name) }} </td>
+                                            <td>{{ $allpost->slug }} </td>
+                                            <td>
+                                                @foreach($allpost->tags as $tags)
+                                                <span class="badge bg-primary">{{ $tags->name }} </span>
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $allpost->created_at->format('j - m - Y') }}</td>
+                                            <td>{{ ucfirst($allpost->user->name) }}</span></td>
+                                            <td class="d-flex">
+                                                <a data-toggle="tooltip" title="Edit Post"  class="btn badge badge-warning btnEdit"
+                                                    href="{{ route('post.edit', [$allpost->id]) }}">Edit </a>
 
-                                            <button type="submit" class="btn badge badge-danger delteBtn ml-1"> Delete</button>
-                                            <!-- <a class="btn btn-xs btn-success" href="{{ route('category.show', [$allpost->id]) }}"><i class="fas fa-eye"></i> </a> -->
-                                        </td>
-                                    </tr>
+                                                <a data-toggle="tooltip" title="View Post"  class="ml-1 btn badge badge-warning btnEdit"
+                                                    href="{{ route('post.show', [$allpost->id]) }}"><i class="fas fa-eye"></i> </a>
+
+                                                <button data-toggle="tooltip" title="Click To delete The Post"  type="submit" class="btn badge badge-danger delteBtn ml-1">
+                                                    Delete</button>
+                                            </td>
+                                        </tr>
+                                    
                                     @php $i++ @endphp
                                     @endforeach
                                 </tbody>

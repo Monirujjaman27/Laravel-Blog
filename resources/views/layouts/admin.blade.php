@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>Laravel blog Web application</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -15,14 +15,14 @@
 
     <link rel="stylesheet" href="{{ asset('admin') }}/packages/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('admin') }}/packages/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/summernote/summernote-bs4.min.css">
+
     <!-- CodeMirror -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/codemirror.css">
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/theme/monokai.css">
+    <!-- <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/codemirror.css">
+    <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/theme/monokai.css"> -->
     <!-- SimpleMDE -->
     <link rel="stylesheet" href="{{ asset('admin') }}/packages/simplemde/simplemde.min.css">
-
+    <!-- include summernote css -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!-- alertify -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- alertify themes/default.min -->
@@ -205,7 +205,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('home') }}" class="brand-link">
                 <i class="fa fa-home fa-2x"></i>
             </a>
 
@@ -218,21 +218,10 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{ route('home') }}" class="nav-link ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Dashboard </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Demo</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li class="nav-item">
@@ -297,13 +286,14 @@
     <script src="{{ asset('admin') }}/packages/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin') }}/js/adminlte.min.js"></script>
-    <!-- Summernote -->
-    <script src="{{ asset('admin') }}/packages/summernote/summernote-bs4.min.js"></script>
+    <!-- summernote -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <!-- CodeMirror -->
-    <script src="{{ asset('admin') }}/packages/codemirror/codemirror.js"></script>
+    <!-- <script src="{{ asset('admin') }}/packages/codemirror/codemirror.js"></script>
     <script src="{{ asset('admin') }}/packages/codemirror/mode/css/css.js"></script>
     <script src="{{ asset('admin') }}/packages/codemirror/mode/xml/xml.js"></script>
-    <script src="{{ asset('admin') }}/packages/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="{{ asset('admin') }}/packages/codemirror/mode/htmlmixed/htmlmixed.js"></script> -->
+    <script src="{{ asset('admin') }}/packages/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('admin') }}/js/demo.js"></script>
     <!-- alertify -->
@@ -312,6 +302,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <!-- Custom ajax code -->
     <script src="{{ asset('admin') }}/js/appAjax.js"></script>
 
@@ -319,24 +310,33 @@
 
     <!-- Page specific script -->
     <script>
-
     @if(Session::get('success'))
-        toastr.success("{{ Session::get('success') }}");
+    toastr.success("{{ Session::get('success') }}");
     @endif
 
-
-
+    // CustomFileInput
     $(function() {
-        // Summernote
-        $('#summernote').summernote()
+        bsCustomFileInput.init();
+    });
 
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-        });
-    })
+
+    // tooltip
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     </script>
+ <script>
+//  summernote
+      $('#description').summernote({
+        placeholder: 'Write a Description here...',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+
+
+
     <script>
     $(function() {
         $("#example1").DataTable({

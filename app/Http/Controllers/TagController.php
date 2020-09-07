@@ -43,7 +43,7 @@ class TagController extends Controller
     ]);
 
     $tag = Tag::create([
-       'name' => $request->name,
+       'name' => ucfirst($request->name),
        'slug' => str::slug($request->name, '-'),
        'description' => $request->description,
     ]);
@@ -86,7 +86,7 @@ class TagController extends Controller
             'name' => 'required|unique:tags,name,$tag->name',
             ]);
         
-            $tag->name = $request->name;
+            $tag->name =ucfirst($request->name);
             $tag->slug = str::slug($request->name, '-');
             $tag->description = $request->description;
             $tag->save();

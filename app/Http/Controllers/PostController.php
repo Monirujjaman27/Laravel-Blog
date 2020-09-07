@@ -18,12 +18,11 @@ class PostController extends Controller
      */
     public function index()
     {
-       
         $allpost = post::orderBy('created_at', 'DESC')->paginate(20);
         $tags = Tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
 
-        return view('admin.posts.index', compact(['allpost', 'category']));
+        return view('admin.posts.index', compact(['allpost', 'category', 'tags']));
  
     }
 
@@ -48,6 +47,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $validData = $this->validate($request,[
             'title' => 'required|unique:posts,title',
             'image' => 'required',
@@ -55,14 +55,15 @@ class PostController extends Controller
             'category_id' => 'required',
             ]);
 
-        $post = new Post;
-        $post->title       = ucfirst($request->title);
-        $post->slug        = str::slug($request->title, '-');
-        $post->description = $request->description;
-        $post->category_id = $request->category_id;
-        $post->user_id     = auth()->user()->id;
-
-
+        $post =Post::create([
+       'title'       => ucfirst($request->title),
+       'image'       => ' ',
+       'slug'        => str::slug($request->title, '-'),
+       'description' => $request->description,
+       'category_id' => $request->category_id,
+       'user_id'     => auth()->user()->id,
+        ]);
+    $post->tags()->attach($request->tags);
         
         if($request->has('image')){
             $image = $request->image;
@@ -83,9 +84,10 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(post $post)
     {
-//
+      
+        return view('admin.posts.viewPost', compact('post'));
     }
 
     /**
@@ -96,8 +98,9 @@ class PostController extends Controller
      */
     public function edit(post $post)
     {
+        $tags = Tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
-    return view('admin.Posts.edit', compact(['post', 'category']));
+        return view('admin.Posts.edit', compact(['post', 'category', 'tags']));
     }
 
     /**
@@ -121,6 +124,8 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->category_id = $request->category_id;
         $post->user_id     = auth()->user()->id;
+
+        $post->tags()->sync($request->tags);
 
         if($request->hasFile('image')){
             $image = $request->image;
