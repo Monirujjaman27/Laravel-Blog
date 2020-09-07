@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Tag;
 use App\Brand;
-use App\post;
+use App\Post;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\str;
@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allpost = post::orderBy('created_at', 'DESC')->paginate(20);
+        $allpost = Post::orderBy('created_at', 'DESC')->paginate(20);
         $tags = Tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
 
@@ -124,7 +124,7 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->category_id = $request->category_id;
         $post->user_id     = auth()->user()->id;
-
+            
         $post->tags()->sync($request->tags);
 
         if($request->hasFile('image')){

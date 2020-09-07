@@ -38,8 +38,8 @@
                                     <tr>
                                         <th width="1%">No</th>
                                         <th width="10%">Title</th>
-                                        <th width="3%">Image</th>
-                                        <th width="20%">Description</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
                                         <th>Category</th>
                                         <th>Slug</th>
                                         <th>Tags</th>
@@ -62,7 +62,7 @@
                                                     src="{{ asset('/storage/post').'/'.$allpost->image }}"
                                                     alt="{{ $allpost->image }}">
                                             </td>
-                                            <td>{{ $allpost->description }}</td>
+                                            <td>{{ ucfirst(strip_tags(Str::limit($allpost->description, 150))) }}</td>
                                             <td>{{ ucfirst($allpost->category->name) }} </td>
                                             <td>{{ $allpost->slug }} </td>
                                             <td>
@@ -76,7 +76,7 @@
                                                 <a data-toggle="tooltip" title="Edit Post"  class="btn badge badge-warning btnEdit"
                                                     href="{{ route('post.edit', [$allpost->id]) }}">Edit </a>
 
-                                                <a data-toggle="tooltip" title="View Post"  class="ml-1 btn badge badge-warning btnEdit"
+                                                <a data-toggle="tooltip" title="View Post"  class="ml-1 btn badge badge-info btnEdit"
                                                     href="{{ route('post.show', [$allpost->id]) }}"><i class="fas fa-eye"></i> </a>
 
                                                 <button data-toggle="tooltip" title="Click To delete The Post"  type="submit" class="btn badge badge-danger delteBtn ml-1">

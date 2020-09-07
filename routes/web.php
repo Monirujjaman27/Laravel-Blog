@@ -24,28 +24,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Forntend routs 
-
 // home route
-route::get('/', function(){
-    return view('website.home');
-});
-
+Route::get('/', 'FrontendController@index')->name('website.index');
 // about route 
-route::get('/about', function(){
-    return view('website.about');
-});
+Route::get('/about', 'FrontendController@about')->name('website.about');
 // category route 
-route::get('/category', function(){
-    return view('website.category');
-});
+Route::get('/category', 'FrontendController@category')->name('website.category');
 // contact route 
-route::get('/contact', function(){
-    return view('website.contact');
-});
+Route::get('/contact', 'FrontendController@contact')->name('website.contact');
+// post route 
+Route::get('/post/{slug}', 'FrontendController@post')->name('website.post');
+
+
+
+
+
+
+
 // single post or post detais route 
-route::get('/post', function(){
-    return view('website.post');
-});
 
 // frontend routs end 
 
