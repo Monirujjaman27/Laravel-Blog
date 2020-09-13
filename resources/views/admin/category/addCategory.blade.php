@@ -38,13 +38,12 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="catName">Category Name:</label>
-                                    <input id="catName" class="form-control" type="text" name="name">
+                                    <input id="catName" class="form-control" type="text" name="name" placeholder="Category">
                                 </div>
                                 <div class="form-group">
-                                    <label for="catDescription">Category Description:</label>
-                                    <textarea placeholder="Description" height="200px" name="description" id="summernote" cols="30" rows="10">
-                                    
-                                    </textarea>
+                                    <label for="description">Category Description:</label>
+                                    <textarea name="description" id="description" ></textarea>
+
                                 </div>
                             </div>
                             <div class="card-footer">

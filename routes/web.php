@@ -29,7 +29,7 @@ Route::get('/', 'FrontendController@index')->name('website.index');
 // about route 
 Route::get('/about', 'FrontendController@about')->name('website.about');
 // category route 
-Route::get('/category', 'FrontendController@category')->name('website.category');
+Route::get('/category/{slug}', 'FrontendController@category')->name('website.category');
 // contact route 
 Route::get('/contact', 'FrontendController@contact')->name('website.contact');
 // post route 
@@ -56,4 +56,11 @@ route::group(['prefix'=>'/home', 'middleware' =>['auth']],  function(){
     route::resource('tag', 'TagController');
     route::resource('post', 'PostController');
     Route::post('post/delete/{id}', 'PostController@delete')->name('post.delete');
+
+    route::resource('user', 'UserController');
+    Route::post('user/delete/{id}', 'UserController@delete')->name('user.delete');
+    Route::get('/profile', 'UserController@profile')->name('user.profile');
+    Route::get('/profile/update', 'UserController@profileupdate')->name('profile.update');
+    Route::resource('settings', 'WebsiteSettingsXontroller@index');
+
 });

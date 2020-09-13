@@ -11,9 +11,9 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('post.index') }}">Post</a></li>
-                        <li class="breadcrumb-item active">Add Post</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}"><small>Home</small></a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('post.index') }}"><small>Post</small></a></li>
+                        <li class="breadcrumb-item active"><small>Add Post</small></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -50,10 +50,11 @@
                                     <select class="form-control" name="category_id" id="category">
                                         <option class="d-none" selected>Select</option>
                                         @foreach($category as $category)
-                                        <option class="form-control" value="{{ $category->id }}">{{ $category->name }}
+                                        <option class="form-control" value="{{ $category->id }}">{{ ucfirst($category->name) }}
                                         </option>
                                         @endforeach
                                     </select>
+                                    
                                 </div>
                                 <!-- Post Thumbnail -->
                                 <div class="form-group">

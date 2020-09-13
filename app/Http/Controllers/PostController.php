@@ -55,7 +55,7 @@ class PostController extends Controller
             'category_id' => 'required',
             ]);
 
-        $post =Post::create([
+        $post = Post::create([
        'title'       => ucfirst($request->title),
        'image'       => ' ',
        'slug'        => str::slug($request->title, '-'),
@@ -86,7 +86,6 @@ class PostController extends Controller
      */
     public function show(post $post)
     {
-      
         return view('admin.posts.viewPost', compact('post'));
     }
 

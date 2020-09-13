@@ -148,3 +148,43 @@ $('table').on('click', '.delteBtn', function() {
 
 
 })
+
+//Delete Users
+$('table').on('click', '.delteBtn', function() {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover Data!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+            let id = $(this).closest('tr').data('id');
+            var dataRow = $('input[name="classes"]').val();
+            var dataClass = '.'+dataRow+id;
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                method: 'POST',
+                url: "user/delete"+'/'+id,
+                success: function() {
+                  $(dataClass).hide();
+                  swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+                }
+                
+            })
+
+        } else {
+            swal("Your imaginary file is safe!");
+        }
+    });
+
+
+
+
+})

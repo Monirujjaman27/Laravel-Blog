@@ -42,8 +42,8 @@
                                     <input id="catName" class="form-control" type="text" name="name" value="{{ $tag->name }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="catDescription">Tag Description:</label>
-                                    <textarea placeholder="Description" height="200px" name="description" id="summernote" cols="30" rows="10">
+                                    <label for="description">Tag Description:</label>
+                                    <textarea placeholder="Description" name="description" id="description">
                                     {{  $tag->description }}
                                     </textarea>
                                 </div>

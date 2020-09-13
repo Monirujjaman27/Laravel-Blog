@@ -88,7 +88,8 @@ class CategoryController extends Controller
     {
   //validation
      $validData = $this->validate($request,[
-    'name' => 'required|unique:categories,name,$category->name',
+    'name' => 'required|unique:categories,name,'.$category->id,
+    
     ]);
 
     $category->name = $request->name;

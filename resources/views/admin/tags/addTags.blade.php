@@ -38,11 +38,11 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="catName">Tags Name:</label>
-                                    <input id="catName" class="form-control" type="text" name="name">
+                                    <input id="catName" class="form-control" type="text" name="name" placeholder="Tag">
                                 </div>
                                 <div class="form-group">
-                                    <label for="catDescription">Tags Description:</label>
-                                    <textarea placeholder="Description" height="200px" name="description" id="summernote" cols="30" rows="10">
+                                    <label for="description">Tags Description:</label>
+                                    <textarea placeholder="Description" name="description" id="description" cols="30" rows="10">
                                     
                                     </textarea>
                                 </div>

@@ -29,8 +29,8 @@
                 @include('admin.includes.errors')
                     <div class="card card-outline card-info">
                         <div class="card-header">
-                            <span class="card-title">Edit Category </span>
-                            <a href="{{ route('category.index') }} "class="float-right badge badge-info p-2">Back Category Page</a>
+                            <a href="{{ route('category.index') }} "class="badge badge-info p-2">Back Category Page</a>
+                            <a href="{{ route('category.create') }} "class="float-right badge badge-info p-2">Create new Category</a>
                         </div>
                         <!-- /.card-header -->
                         <form action="{{ route('category.update', [$category->id]) }}" method="POST">
@@ -43,9 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="catDescription">Category Description:</label>
-                                    <textarea placeholder="Description" height="200px" name="description" id="summernote" cols="30" rows="10">
-                                    {{  $category->description }}
-                                    </textarea>
+                                    <textarea name="description" id="description" >{{ $category->description }}</textarea>
                                 </div>
                             </div>
                             <div class="card-footer">

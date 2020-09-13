@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li data-toggle="tooltip" title="Back Dashboard"  class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Post List</li>
+                        <li class="breadcrumb-item active">All Posts</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -39,7 +39,7 @@
                                         <th width="1%">No</th>
                                         <th width="10%">Title</th>
                                         <th>Image</th>
-                                        <th>Description</th>
+                                        <th width="15%">Description</th>
                                         <th>Category</th>
                                         <th>Slug</th>
                                         <th>Tags</th>
@@ -62,7 +62,7 @@
                                                     src="{{ asset('/storage/post').'/'.$allpost->image }}"
                                                     alt="{{ $allpost->image }}">
                                             </td>
-                                            <td>{{ ucfirst(strip_tags(Str::limit($allpost->description, 150))) }}</td>
+                                            <td>{{ ucfirst(strip_tags(Str::limit($allpost->description, 50))) }}</td>
                                             <td>{{ ucfirst($allpost->category->name) }} </td>
                                             <td>{{ $allpost->slug }} </td>
                                             <td>

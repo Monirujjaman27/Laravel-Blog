@@ -39,7 +39,7 @@ class TagController extends Controller
     {
        //validation
        $validData = $this->validate($request,[
-        'name' => 'required|unique:categories,name',
+        'name' => 'required|unique:tags,name',
     ]);
 
     $tag = Tag::create([
@@ -83,7 +83,7 @@ class TagController extends Controller
     public function update(Request $request, tag $tag)
     {
         $validData = $this->validate($request,[
-            'name' => 'required|unique:tags,name,$tag->name',
+            'name' => 'required|unique:tags,name,'.$tag->id,
             ]);
         
             $tag->name =ucfirst($request->name);
