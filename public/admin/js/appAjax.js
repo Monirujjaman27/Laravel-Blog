@@ -12,6 +12,8 @@
 //     }
 // });
 
+// const { isEmpty } = require("lodash");
+
 // // reset method 
 // function reset() {
 //     _modal.find('input').each(function() {
@@ -188,3 +190,24 @@ $('table').on('click', '.delteBtn', function() {
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

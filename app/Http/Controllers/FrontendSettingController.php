@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FrontendSetting;
 use Illuminate\Http\Request;
-
+use Session;
 class FrontendSettingController extends Controller
 {
     /**
@@ -12,20 +12,14 @@ class FrontendSettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +51,9 @@ class FrontendSettingController extends Controller
      */
     public function edit(FrontendSetting $frontendSetting)
     {
-        //
+        $frontendSetting = FrontendSetting::first();
+
+        return view('admin.settings.index', compact('frontendSetting'));
     }
 
     /**
@@ -67,9 +63,23 @@ class FrontendSettingController extends Controller
      * @param  \App\FrontendSetting  $frontendSetting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FrontendSetting $frontendSetting)
+    public function update(Request $request)
     {
-        //
+
+        $setting =  FrontendSetting::first();
+        $setting->update($request->all());
+        $unlinkImgName = $setting->logo;
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $newImgName = time().'-'.$image->getClientOriginalName();
+            unlink('storage/logo/'.$unlinkImgName);
+            $image->move('storage/logo/',$newImgName);
+            $setting->logo = $newImgName;
+            $setting->save();
+        }
+       
+        Session::flash('success', 'Updated Successfully');
+        return redirect()->back();
     }
 
     /**

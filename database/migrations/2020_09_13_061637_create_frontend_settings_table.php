@@ -15,6 +15,14 @@ class CreateFrontendSettingsTable extends Migration
     {
         Schema::create('frontend_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('logo')->nullable();
+            $table->string('site_title')->nullable();
+            $table->string('site_about')->nullable();
+            $table->string('copyright')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('gmail')->nullable();
             $table->timestamps();
         });
     }

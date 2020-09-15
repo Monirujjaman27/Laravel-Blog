@@ -9,11 +9,12 @@ use App\Brand;
 use App\Post;
 use Session;
 use Illuminate\Support\str;
+use App\FrontendSetting;
 class FrontendController extends Controller
 {
 //    index page
     public function index()
-    {
+    {      
         $allPost = Post::orderBy('created_at', 'DESC')->paginate(9);
         $headerPost = Post::orderBy('created_at', 'DESC')->take(5)->get();
 
@@ -26,8 +27,10 @@ class FrontendController extends Controller
         $footerMiddlePost = $footerpost->splice(0, 2);
         $footerLastPost   = $footerpost->splice(0, 1);
 
+        $siteControle = FrontendSetting::first();
 
-        return view('website.home', compact(['allPost', 'firstPost', 'middlePost', 'lastPost', 'footerFirstPost', 'footerMiddlePost', 'footerLastPost']));
+
+        return view('website.home', compact(['allPost', 'firstPost', 'middlePost', 'lastPost', 'footerFirstPost', 'footerMiddlePost', 'footerLastPost', 'siteControle']));
     }
 
     public function about()

@@ -61,6 +61,10 @@ route::group(['prefix'=>'/home', 'middleware' =>['auth']],  function(){
     Route::post('user/delete/{id}', 'UserController@delete')->name('user.delete');
     Route::get('/profile', 'UserController@profile')->name('user.profile');
     Route::get('/profile/update', 'UserController@profileupdate')->name('profile.update');
-    Route::resource('settings', 'WebsiteSettingsXontroller@index');
+
+
+
+    Route::get('settings', 'FrontendSettingController@edit')->name('settings.edit');
+    Route::post('settings/update', 'FrontendSettingController@update')->name('settings.update');
 
 });

@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('post.index') }}" class="nav-link">
+                            <a href="{{ route('settings.edit') }}" class="nav-link">
                                 <i class="fas fa-cogs nav-icon"></i>
                                 <p>Basic Control</p>
                             </a>
