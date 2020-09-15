@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-md-6">
                 <span> Category </span>
-                <h3>{{ $category->name }}</h3>
+                <h3>{{ ucfirst($category->name) }}</h3>
                 @if($category->description)
-                <p>{{ $category->description }} </p>
+                <p>{{ ucfirst(strip_tags(Str::limit($category->description, 300))) }} </p>
                 @endif
             </div>
         </div>

@@ -27,10 +27,9 @@ class FrontendController extends Controller
         $footerMiddlePost = $footerpost->splice(0, 2);
         $footerLastPost   = $footerpost->splice(0, 1);
 
-        $siteControle = FrontendSetting::first();
 
 
-        return view('website.home', compact(['allPost', 'firstPost', 'middlePost', 'lastPost', 'footerFirstPost', 'footerMiddlePost', 'footerLastPost', 'siteControle']));
+        return view('website.home', compact(['allPost', 'firstPost', 'middlePost', 'lastPost', 'footerFirstPost', 'footerMiddlePost', 'footerLastPost']));
     }
 
     public function about()
@@ -41,7 +40,7 @@ class FrontendController extends Controller
     // show post by category
     public function category($slug)
     {
-        $category = Category::where('slug',$slug)->first();
+        $category = Category::where('slug', $slug)->first();
         if($category){
             $post = Post::where('category_id', $category->id)->paginate(3);
             return view('website.category', compact(['category', 'post']));

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
 use App\FrontendSetting;
 use Illuminate\Http\Request;
 use Session;
