@@ -79,7 +79,7 @@
             <ul class="list-unstyled float-left mr-5">
               <li><a href="{{ route('website.index') }}">Home</a></li>
               <li><a href="{{ route('website.about') }}">About Us</a></li>
-              <li><a href="{{ route('website.index') }}">Posts</a></li>
+              <li><a href="{{ route('website.index') }}">Post</a></li>
               <li><a href="{{ route('website.contact') }}">Contact</a></li>
             </ul>
             <ul class="list-unstyled float-left">

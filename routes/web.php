@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
+/*composer global require laravel/installer
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -32,6 +32,7 @@ Route::get('/about', 'FrontendController@about')->name('website.about');
 Route::get('/category/{slug}', 'FrontendController@category')->name('website.category');
 // contact route 
 Route::get('/contact', 'FrontendController@contact')->name('website.contact');
+Route::post('/contact', 'contactController@store')->name('contact.store');
 // post route 
 Route::get('/post/{slug}', 'FrontendController@post')->name('website.post');
 

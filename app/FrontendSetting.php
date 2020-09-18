@@ -13,5 +13,7 @@ class FrontendSetting extends Model
         'facebook',
          'twitter',
           'instagram',
-           'gmail'];
+           'gmail',
+            'phone',
+             'address' ];
 }

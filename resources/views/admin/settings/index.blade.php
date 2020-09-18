@@ -58,7 +58,7 @@
                                 <!-- facebook -->
                                 <div class="form-group d-flex">
                                     <div class="col-md-12">
-                                        <label for="facebook">Facebook URL </label>
+                                        <label for="facebook">Facebook </label>
                                         <input id="facebook" class="form-control" type="url" name="facebook"
                                             value="{{ $frontendSetting->facebook }}" placeholder="Enter facebook url"
                                             value="">
@@ -69,7 +69,7 @@
                                 <!-- Twitter -->
                                 <div class="form-group d-flex">
                                     <div class="col-md-12">
-                                        <label for="twitter">Twitter URL </label>
+                                        <label for="twitter">Twitter </label>
                                         <input id="twitter" class="form-control" type="url" name="twitter"
                                             value="{{ $frontendSetting->twitter }}" placeholder="Enter twitter url"
                                             value="">
@@ -80,7 +80,7 @@
                                 <!-- instagram -->
                                 <div class="form-group d-flex">
                                     <div class="col-md-12">
-                                        <label for="instagram">Instagram URL </label>
+                                        <label for="instagram">Instagram </label>
                                         <input id="instagram" class="form-control" type="url" name="instagram"
                                             value="{{ $frontendSetting->instagram }}" placeholder="Enter Instagram url"
                                             value="">
@@ -91,11 +91,31 @@
                                 <!-- gmail -->
                                 <div class="form-group d-flex">
                                     <div class="col-md-12">
-                                        <label for="gmail">Gmail URL </label>
+                                        <label for="gmail">Gmail </label>
                                         <input id="gmail" class="form-control" type="email" name="gmail"
                                             value="{{ $frontendSetting->gmail }}" placeholder="Enter Gmail url"
                                             value="">
                                         <small class="text-secondary">[Ex: https://www.gmail.com/example. ]</small>
+                                    </div>
+
+                                </div>
+                                <!-- Phone -->
+                                <div class="form-group d-flex">
+                                    <div class="col-md-12">
+                                        <label for="gmail">Phone No</label>
+                                        <input id="phone" class="form-control" type="phone" name="phone"
+                                            value="{{ $frontendSetting->phone }}" placeholder="Enter phone"
+                                            value="">
+                                        <small class="text-secondary">[Ex: +880******** ]</small>
+                                    </div>
+
+                                </div>
+                                <!-- Address -->
+                                <div class="form-group d-flex">
+                                    <div class="col-md-12">
+                                        <label for="gmail">Address </label>
+                                        <textarea class="form-control" name="address" id="" cols="10" rows="1" placeholder="Address">{{ $frontendSetting->address }}"</textarea>
+                                        <small class="text-secondary">[Ex: 203 Fake St. Mountain View, San Francisco, California, USA. ]</small>
                                     </div>
 
                                 </div>
@@ -118,7 +138,7 @@
                         <div class="card card-outline card-info">
                             <div class="row">
                                 <div class="col-12">
-                                    <img class="img-fluid" id="logoimg"
+                                    <img class="w-100" id="logoimg"
                                         src="{{ asset('/storage/logo/') }}{{'/'.$frontendSetting->logo }}"
                                         alt="{{ $frontendSetting->logo }}">
                                 </div>

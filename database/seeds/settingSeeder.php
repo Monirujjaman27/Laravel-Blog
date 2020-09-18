@@ -21,6 +21,8 @@ class settingSeeder extends Seeder
             'twitter' => 'https://twitter.com/MdMunirujjaman5',
             'instagram' => 'https://www.instagram.com/mdmunirujjaman045/',
             'gmail' => 'mdmunirujjaman045@gmail.com',
+            'phone' => '01518488865',
+            'address' => '203 Fake St. Mountain View, San Francisco, California, USA',
         ]);
     }
 }

@@ -126,9 +126,12 @@ class PostController extends Controller
             
         $post->tags()->sync($request->tags);
 
+        $unlinkImgName = $post->image;
+        
         if($request->hasFile('image')){
             $image = $request->image;
             $newImgName = time().'-'.$image->getClientOriginalName();
+            unlink('storage/post/'.$unlinkImgName);
             $image->move('storage/post/',$newImgName);
             $post->image = $newImgName;
         }
