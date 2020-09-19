@@ -41,7 +41,7 @@
                             href="#">{{ ucfirst($post->category->name) }}</a> |
                         <strong class="font-weight-bold" for=""> Tags:</strong>
                         @foreach($post->tags as $tags)
-                        <a class="badge badge-primary" href="#">{{ '#'.$tags->name }}</a>,
+                        <a class="badge badge-primary" href="{{ route('website.tag', ['slug'=>$tags->slug]) }}">{{ '#'.$tags->name }}</a>,
                         @endforeach
 
                     </p>
@@ -238,7 +238,7 @@
                     <ul class="categories">
                         @foreach($allcategory as $allcategory)
                         <li><a href="{{ route('website.category', ['slug'=>$allcategory->slug]) }}">{{ $allcategory->name }}
-                                <span>(12)</span></a></li>
+                                <span></span></a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -248,7 +248,7 @@
                     <h3 class="heading">Tags</h3>
                     <ul class="tags">
                         @foreach($alltags as $alltags)
-                        <li><a href="">{{ $alltags->name }}</a></li>
+                        <li><a href="{{ route('website.tag', ['slug'=>$alltags->slug]) }}">{{ $alltags->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -308,22 +308,5 @@
 </div>
 
 
-<div class="site-section bg-lightx">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-5">
-                <div class="subscribe-1 ">
-                    <h2>Subscribe to our newsletter</h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nesciunt error illum a
-                        explicabo, ipsam nostrum.</p>
-                    <form action="#" class="d-flex">
-                        <input type="text" class="form-control" placeholder="Enter your email address">
-                        <input type="submit" class="btn btn-primary" value="Subscribe">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endforeach
 @endsection

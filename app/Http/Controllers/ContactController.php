@@ -14,7 +14,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+
+        $message = Contact::orderBy('id', 'DESC')->get();
+        return view('admin.message.index', compact(['message']));
     }
 
     /**
@@ -26,6 +28,19 @@ class ContactController extends Controller
     {
         //
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function viewmessage($id)
+    {
+
+        $contact = Contact::where('id', $id)->first();
+        $contact->seen = 1;
+        $contact->save();
+       return view('admin.message.readmessage', compact(['contact']));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,17 +50,17 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+   
         $this->validate($request,[
             'name' => 'required|max:50',
             'email' =>'required|email',
             'subject' => 'required',
-            'message' => 'required|max:200',
+            'message' => 'required',
             'phone' => 'required',
-            'subject' => 'required|min:50',
+            'subject' => 'required|min:15',
             ]); 
             $contact = Contact::create($request->all());
-            Session::flash('success', 'Message sent success');
+            Session::flash('message-send', 'your Message sent successfully');
             return redirect()->back();
     }
 

@@ -42,8 +42,20 @@ class FrontendController extends Controller
     {
         $category = Category::where('slug', $slug)->first();
         if($category){
-            $post = Post::where('category_id', $category->id)->paginate(3);
+            $post = post::where('category_id', $category->id)->paginate(3);
             return view('website.category', compact(['category', 'post']));
+
+        }else return redirect()->route('website.index');
+
+    }
+    // show post by tag page
+    public function tag($slug)
+    {
+        $tags = tag::where('slug', $slug)->first();
+       
+        if($tags){
+        $post = $tags->posts()->orderBy('created_at', 'desc')->paginate(9);
+        return view('website.tag', compact(['tags', 'post']));
 
         }else return redirect()->route('website.index');
 

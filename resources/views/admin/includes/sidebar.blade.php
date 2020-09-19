@@ -41,15 +41,17 @@
                         <li class="nav-item">
                             <a href="{{ route('settings.edit') }}" class="nav-link">
                                 <i class="fas fa-cogs nav-icon"></i>
-                                <p>Basic Control</p>
+                                <p>Basic Setting</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('post.index') }}" class="nav-link">
-                                <i class="fas fa-wrench nav-icon"></i>
-                                <p>Website Setting</p>
+                            <a href="{{ route('contacet.index') }}" class="nav-link">
+                                <i class="fas fa-envelope nav-icon"></i>
+                                <p>Message</p>
                             </a>
                         </li>
+                        <br>
+                        <br>
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}" class="nav-link">
                                 <i class="fas fa-users nav-icon"></i>

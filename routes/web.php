@@ -30,6 +30,8 @@ Route::get('/', 'FrontendController@index')->name('website.index');
 Route::get('/about', 'FrontendController@about')->name('website.about');
 // category route 
 Route::get('/category/{slug}', 'FrontendController@category')->name('website.category');
+// Tag route 
+Route::get('/tag/{slug}', 'FrontendController@tag')->name('website.tag');
 // contact route 
 Route::get('/contact', 'FrontendController@contact')->name('website.contact');
 Route::post('/contact', 'contactController@store')->name('contact.store');
@@ -64,8 +66,13 @@ route::group(['prefix'=>'/home', 'middleware' =>['auth']],  function(){
     Route::get('/profile/update', 'UserController@profileupdate')->name('profile.update');
 
 
-
+// settings route 
     Route::get('settings', 'FrontendSettingController@edit')->name('settings.edit');
     Route::post('settings/update', 'FrontendSettingController@update')->name('settings.update');
 
+
+
+    // message route 
+    route::get('message/inbox', 'contactController@index')->name('contacet.index');
+    route::get('/message/read/{id}', 'contactController@viewmessage')->name('contacet.viewmessage');
 });

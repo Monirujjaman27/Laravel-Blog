@@ -20,16 +20,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7 mb-5">
-
-            
-
+          @include('admin.includes.errors')
+          @if(Session::has('message-send'))
+<div class="alert alert-success">{{ Session::get('message-send') }}</div>
+@endif
             <form action="{{ route('contact.store') }}" class="p-5 bg-white" method="POST">
              @csrf
 
               <div class="row form-group">
                
                 <div class="col-md-12">
-                  <label class="text-black" for="lname"> Name</label>
+                  <label class="text-black" for="lname"> Name <sup class="text-danger">*</sup></label>
                   <input placeholder="Name" name="name" type="text" id="name" class="form-control">
                 </div>
               </div>
@@ -37,7 +38,7 @@
               <div class="row form-group">
                 
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label> 
+                  <label class="text-black" for="email">Email<sup class="text-danger">*</sup></label> 
                   <input placeholder="Email" name="email" type="email" id="email" class="form-control">
                 </div>
               </div>
@@ -45,21 +46,24 @@
               <div class="row form-group">
                 
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Phone</label> 
+                  <label class="text-black" for="email">Phone<sup class="text-danger">*</sup></label>
+                  <small class="text-secondary">[Ex: +8801********]</small>
                   <input placeholder="Phone" name="phone" type="phone" id="email" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label> 
+                  <label class="text-black" for="subject">Subject<sup class="text-danger">*</sup></label> 
+                  <small class="text-secondary">[Minimum 15 chracter]</small>
                   <input placeholder="Subject" name="subject" type="subject" id="subject" class="form-control">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label> 
+                  <label class="text-black" for="message">Message<sup class="text-danger">*</sup></label> 
+                  <small class="text-secondary">[Max 200 chracter]</small>
                   <textarea placeholder="Message" name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
                 </div>
               </div>

@@ -68,62 +68,39 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
+                        @if($newmesssage)
+                        <span class="badge badge-danger navbar-badge">{{ $newmesssage->count() }}</span>
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
+                       @foreach($newmesssage as $message)
+                       <a href="{{ route('contacet.viewmessage', ['id'=>$message->id] ) }}" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset('admin') }}/img/user1-128x128.jpg" alt="User Avatar"
+                                <img src="@if( $message->image ) {{ asset('/storage/message')}} @else{{ asset('website/images/user.svg') }} @endif"
+                            alt=""
                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                       {{ $message->name }}
+                                        <span class="float-right text-sm text-secondary"><i class="fas fa-star"></i></span>
                                     </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                    <p class="text-sm">{{ (Str::limit($message->subject, 10)) }}</b> - {{ ucfirst(strip_tags(Str::limit($message->message, 10))) }}..</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ $message->created_at->format('h:m')}} Hours Ago</p>
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="{{ asset('admin') }}/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="{{ asset('admin') }}/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                       @endforeach
+                       
+                       @if($newmesssage)
+                       <a href="{{route('contacet.index') }}" class="dropdown-item dropdown-footer">See All Messages</a>
+                        @else
+                        <span class="dropdown-item dropdown-footer">No new Messages</span>
+                        @endif
+                      
+                      
                     </div>
                 </li>
                 <!-- Notifications Dropdown Menu -->
