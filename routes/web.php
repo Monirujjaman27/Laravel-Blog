@@ -51,9 +51,7 @@ Route::get('/post/{slug}', 'FrontendController@post')->name('website.post');
 // Backend Routes start
 
 route::group(['prefix'=>'/home', 'middleware' =>['auth']],  function(){
-    route::get('/dashboard', function(){
-        return view('admin.dashboard.index')->name('home');
-    });
+    route::get('/dashboard','DashboardController@index')->name('home');
 
     route::resource('category', 'CategoryController');
     route::resource('tag', 'TagController');
