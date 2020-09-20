@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <img class="img-fluid float-right mr-2" height='50' width="50"
-                                                src="{{ asset('/storage/post').'/'.$post->image }}"
+                                                src="{{ asset('public/storage/post').'/'.$post->image }}"
                                                 alt="{{ $post->image }}">
                                         </div>
                                     </div>

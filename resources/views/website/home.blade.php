@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 @foreach($firstPost as $post )
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="h-entry mb-30 v-height gradient"
-                    style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                    style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
 
                     <div class="text">
                         <h2>{{ $post->title }}</h2>
@@ -21,7 +21,7 @@
             <div class="col-md-4">
                 @foreach($middlePost as $post)
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="h-entry img-5 h-100 gradient"
-                    style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                    style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
 
                     <div class="text">
                         <div class="post-categories mb-3">
@@ -36,7 +36,7 @@
             <div class="col-md-4">
                 @foreach($lastPost as $post)
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="h-entry mb-30 v-height gradient"
-                    style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                    style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
 
                     <div class="text">
                         <h2>{{ $post->title }}</h2>
@@ -65,7 +65,7 @@
             <div class="col-lg-4 mb-4">
                 <div class="entry2">
                     <a href="{{ route('website.post', ['slug'=>$post->slug]) }}"><img height="370px" width="370px"
-                            src="{{ asset('/storage/post').'/'.$post->image }}" alt="{{ $post->image }}"
+                            src="{{asset('public/storage/post').'/'.$post->image }}" alt="{{ $post->image }}"
                             class="rounded">
                     </a>
                     <div class="excerpt">
@@ -76,7 +76,7 @@
                         <div class="post-meta align-items-center text-left clearfix">
                             <!-- author-figure -->
                             <figure class="author-figure mb-0 mr-3 float-left"><img
-                                    src="@if( $post->user->image ) {{ asset('/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
+                                    src="@if( $post->user->image ) {{asset('public/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
                                     alt="{{ $post->user->image }}" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By <a href="#">{{ ucfirst($post->user->name) }}</a></span>
@@ -105,7 +105,7 @@
             <div class="col-md-5 order-md-2">
                 @foreach( $footerFirstPost as $post)
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="hentry img-1 h-100 gradient"
-                    style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                    style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
                     <span class="post-category text-white bg-danger">{{ $post->category->name }}</span>
                     <div class="text">
                         <h2>{{ $post->title }}</h2>
@@ -118,7 +118,7 @@
             <div class="col-md-7">
                 @foreach($footerLastPost as $post)
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="hentry img-2 v-height mb30 gradient"
-                    style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                    style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
                     <span class="post-category text-white bg-success">{{ $post->category->name }}</span>
                     <div class="text text-sm">
                         <h2>{{ $post->title }}</h2>
@@ -130,7 +130,7 @@
                 <div class="two-col d-block d-md-flex">
                 @foreach($footerMiddlePost as $post)
                     <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="hentry v-height img-2  ml-auto gradient"
-                        style="background-image:url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+                        style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
                         <span class="post-category text-white bg-primary">{{ $post->category->name }}</span>
                         <div class="text text-sm">
                             <h2>{{ $post->title }}</h2>

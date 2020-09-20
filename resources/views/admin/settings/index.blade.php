@@ -139,7 +139,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <img class="w-100" id="logoimg"
-                                        src="{{ asset('/storage/logo/') }}{{'/'.$frontendSetting->logo }}"
+                                        src="{{ asset('public/storage/logo/') }}{{'/'.$frontendSetting->logo }}"
                                         alt="{{ $frontendSetting->logo }}">
                                 </div>
                             </div>

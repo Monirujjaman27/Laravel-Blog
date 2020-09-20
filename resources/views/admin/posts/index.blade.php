@@ -59,7 +59,7 @@
                                             <td>{{ ucfirst($allpost->title) }}</td>
                                             <td data-toggle="tooltip" title="{{ $allpost->title }}" >
                                                 <img class="img-fluid img-cover" height="40px" width="40px"
-                                                    src="{{ asset('/storage/post').'/'.$allpost->image }}"
+                                                    src="{{ asset('public/storage/post').'/'.$allpost->image }}"
                                                     alt="{{ $allpost->image }}">
                                             </td>
                                             <td>{{ ucfirst(strip_tags(Str::limit($allpost->description, 50))) }}</td>

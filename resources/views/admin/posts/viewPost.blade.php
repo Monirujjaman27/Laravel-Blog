@@ -46,7 +46,7 @@
                                                 <th class="pl-2">Thumbnail</th>
                                                 <td class="">
                                                     <img class="img-fluid" height="200px" width="200px"
-                                                        src="{{ asset('/storage/post').'/'.$post->image }}"
+                                                        src="{{ asset('public/storage/post').'/'.$post->image }}"
                                                         alt="{{ $post->image }}">
                                                 </td>
                                             </tr>

@@ -11,16 +11,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/fontawesome-free/css/all.min.css">
 
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/datatables-responsive/css/responsive.bootstrap4.min.css">
 
     <!-- CodeMirror -->
-    <!-- <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/codemirror.css">
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/codemirror/theme/monokai.css"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/codemirror/codemirror.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/codemirror/theme/monokai.css"> -->
     <!-- SimpleMDE -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/packages/simplemde/simplemde.min.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/simplemde/simplemde.min.css">
     <!-- include summernote css -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!-- alertify -->
@@ -28,12 +28,12 @@
     <!-- alertify themes/default.min -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/css/adminlte.min.css">
     <!-- toastr css  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <!-- style.css  -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('public/admin') }}/css/style.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -204,26 +204,26 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="{{ asset('admin') }}/packages/jquery/jquery.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('admin') }}/packages/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables -->
-    <script src="{{ asset('admin') }}/packages/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('admin') }}/packages/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="{{ asset('admin') }}/packages/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{ asset('admin') }}/packages/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('admin') }}/js/adminlte.min.js"></script>
+    <script src="{{ asset('public/admin') }}/js/adminlte.min.js"></script>
     <!-- summernote -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <!-- CodeMirror -->
-    <!-- <script src="{{ asset('admin') }}/packages/codemirror/codemirror.js"></script>
-    <script src="{{ asset('admin') }}/packages/codemirror/mode/css/css.js"></script>
-    <script src="{{ asset('admin') }}/packages/codemirror/mode/xml/xml.js"></script>
-    <script src="{{ asset('admin') }}/packages/codemirror/mode/htmlmixed/htmlmixed.js"></script> -->
-    <script src="{{ asset('admin') }}/packages/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- <script src="{{ asset('public/admin') }}/packages/codemirror/codemirror.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/codemirror/mode/css/css.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/codemirror/mode/xml/xml.js"></script>
+    <script src="{{ asset('public/admin') }}/packages/codemirror/mode/htmlmixed/htmlmixed.js"></script> -->
+    <script src="{{ asset('public/admin') }}/packages/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('admin') }}/js/demo.js"></script>
+    <script src="{{ asset('public/admin') }}/js/demo.js"></script>
     <!-- alertify -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- toastr -->
@@ -231,7 +231,7 @@
     <!-- summernote -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <!-- Custom ajax code -->
-    <script src="{{ asset('admin') }}/js/appAjax.js"></script>
+    <script src="{{ asset('public/admin') }}/js/appAjax.js"></script>
 
 
 

@@ -3,7 +3,7 @@
 @foreach($post as $post)
 
 <div class="site-cover site-cover-sm same-height overlay single-page"
-    style="background-image: url('{{ asset('/storage/post') }}/{{ $post->image }}');">
+    style="background-image: url('{{ asset('public/storage/post') }}/{{ $post->image }}');">
     <div class="container">
         <div class="row same-height justify-content-center">
             <div class="col-md-12 col-lg-10">
@@ -12,7 +12,7 @@
                     <h1 class="mb-4">{{ $post->title }}</h1>
                     <div class="post-meta align-items-center text-center">
                         <figure class="author-figure mb-0 mr-3 d-inline-block"><img
-                                src="{{ asset('/storage/user') }}/{{ $post->user->image }}"
+                                src="{{ asset('public/storage/user') }}/{{ $post->user->image }}"
                                 alt="{{ $post->user->image  }}" class="img-fluid"></figure>
                         <span class="d-inline-block mt-1">By {{ $post->user->name }}</span>
                         <span>&nbsp;-&nbsp; {{ $post->created_at->format('F d, Y') }}</span>
@@ -49,132 +49,7 @@
 
 
                 <div class="pt-5">
-                    <h3 class="mb-5">6 Comments</h3>
-                    <ul class="comment-list">
-                        <li class="comment">
-                            <div class="vcard">
-                                <img src="{{ asset('website') }}/images/person_1.jpg" alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>Jean Doe</h3>
-                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p><a href="#" class="reply rounded">Reply</a></p>
-                            </div>
-                        </li>
-
-                        <li class="comment">
-                            <div class="vcard">
-                                <img src="{{ asset('website') }}/images/person_1.jpg" alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>Jean Doe</h3>
-                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p><a href="#" class="reply rounded">Reply</a></p>
-                            </div>
-
-                            <ul class="children">
-                                <li class="comment">
-                                    <div class="vcard">
-                                        <img src="{{ asset('website') }}/images/person_1.jpg" alt="Image placeholder">
-                                    </div>
-                                    <div class="comment-body">
-                                        <h3>Jean Doe</h3>
-                                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem
-                                            laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe
-                                            enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?
-                                        </p>
-                                        <p><a href="#" class="reply rounded">Reply</a></p>
-                                    </div>
-
-
-                                    <ul class="children">
-                                        <li class="comment">
-                                            <div class="vcard">
-                                                <img src="{{ asset('website') }}/images/person_1.jpg"
-                                                    alt="Image placeholder">
-                                            </div>
-                                            <div class="comment-body">
-                                                <h3>Jean Doe</h3>
-                                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-                                                    quidem laborum necessitatibus, ipsam impedit vitae autem, eum
-                                                    officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum
-                                                    impedit necessitatibus, nihil?</p>
-                                                <p><a href="#" class="reply rounded">Reply</a></p>
-                                            </div>
-
-                                            <ul class="children">
-                                                <li class="comment">
-                                                    <div class="vcard">
-                                                        <img src="{{ asset('website') }}/images/person_1.jpg"
-                                                            alt="Image placeholder">
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <h3>Jean Doe</h3>
-                                                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                            Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                                                            autem, eum officia, fugiat saepe enim sapiente iste iure!
-                                                            Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                                        <p><a href="#" class="reply rounded">Reply</a></p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="comment">
-                            <div class="vcard">
-                                <img src="{{ asset('website') }}/images/person_1.jpg" alt="Image placeholder">
-                            </div>
-                            <div class="comment-body">
-                                <h3>Jean Doe</h3>
-                                <div class="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum
-                                    necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                                    iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p><a href="#" class="reply rounded">Reply</a></p>
-                            </div>
-                        </li>
-                    </ul>
-                    <!-- END comment-list -->
-
-                    <div class="comment-form-wrap pt-5">
-                        <h3 class="mb-5">Leave a comment</h3>
-                        <form action="#" class="p-5 bg-light">
-                            <div class="form-group">
-                                <label for="name">Name *</label>
-                                <input type="text" class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn btn-primary">
-                            </div>
-
-                        </form>
-                    </div>
+                <div id="disqus_thread"></div>
                 </div>
 
             </div>
@@ -194,7 +69,7 @@
                 <!-- sidebar authore bio area -->
                 <div class="sidebar-box">
                     <div class="bio text-center">
-                        <img src="@if( $post->user->image ) {{ asset('/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
+                        <img src="@if( $post->user->image ) {{ asset('public/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
                             alt="{{ $post->user->image }}" class="img-fluid mb-5">
                         <div class="bio-body">
                             <h2>{{ $post->user->name }}</h2>
@@ -217,8 +92,8 @@
                             @foreach($ppost as $post)
                             <li>
                                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}">
-                                    <img src="{{ asset('/storage/post') }}/{{ $post->image }}"
-                                        alt="{{ asset('/storage/post') }}/{{ $post->image }}" class="mr-4">
+                                    <img src="{{ asset('public/storage/post') }}/{{ $post->image }}"
+                                        alt="{{ asset('public/storage/post') }}/{{ $post->image }}" class="mr-4">
                                     <div class="text">
                                         <h4>{{ $post->title }}</h4>
                                         <div class="post-meta">
@@ -275,7 +150,7 @@
             <div class="col-lg-4 mb-4">
                 <div class="entry2">
                     <a href="{{ route('website.post', ['slug'=>$post->slug]) }}"><img height="370px" width="370px"
-                            src="{{ asset('/storage/post').'/'.$post->image }}" alt="{{ $post->image }}"
+                            src="{{ asset('public/storage/post').'/'.$post->image }}" alt="{{ $post->image }}"
                             class="rounded">
                     </a>
                     <div class="excerpt">
@@ -286,7 +161,7 @@
                         <div class="post-meta align-items-center text-left clearfix">
                             <!-- author-figure -->
                             <figure class="author-figure mb-0 mr-3 float-left"><img
-                                    src="@if( $post->user->image ) {{ asset('/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
+                                    src="@if( $post->user->image ) {{ asset('public/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
                                     alt="{{ $post->user->image }}" class="img-fluid">
                             </figure>
                             <span class="d-inline-block mt-1">By <a href="#">{{ ucfirst($post->user->name) }}</a></span>
@@ -307,6 +182,26 @@
     </div>
 </div>
 
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://laravel-blog-ztcatplohp.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+                            
 
 @endforeach
 @endsection

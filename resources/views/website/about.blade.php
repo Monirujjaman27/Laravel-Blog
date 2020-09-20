@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url\('{{ asset('website') }}/images/img_4.jpg');">
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url\('{{ asset('public/website') }}/images/img_4.jpg');">
       <div class="container">
         <div class="row same-height justify-content-center">
           <div class="col-md-12 col-lg-10">
@@ -20,7 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 order-md-2">
-            <img src="{{ asset('website') }}/images/img_1.jpg" alt="Image" class="img-fluid">
+            <img src="{{ asset('public/website') }}/images/img_1.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-5 mr-auto order-md-1">
             <h2>We Love To Explore</h2>
@@ -45,7 +45,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-5 text-center">
-            <img src="{{ asset('website') }}/images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+            <img src="{{ asset('public/website') }}/images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
             <h2 class="mb-3 h5">Kate Hampton</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
 
@@ -57,7 +57,7 @@
           </div>
 
           <div class="col-md-6 col-lg-4 mb-5 text-center">
-            <img src="{{ asset('website') }}/images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+            <img src="{{ asset('public/website') }}/images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
             <h2 class="mb-3 h5">Richard Cook</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
 
@@ -69,7 +69,7 @@
           </div>
 
           <div class="col-md-6 col-lg-4 mb-5 text-center">
-            <img src="{{ asset('website') }}/images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
+            <img src="{{ asset('public/website') }}/images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
             <h2 class="mb-3 h5">Kevin Peters</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum neque nobis eos quam necessitatibus rerum aliquid est tempore, cupiditate iure at voluptatum dolore, voluptates. Debitis accusamus, beatae ipsam excepturi mollitia.</p>
 
@@ -87,7 +87,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img src="{{ asset('website') }}/images/img_1.jpg" alt="Image" class="img-fluid">
+            <img src="{{ asset('public/website') }}/images/img_1.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-5 ml-auto">
             <h2>Learn From Us</h2>
