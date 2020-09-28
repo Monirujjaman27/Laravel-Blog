@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/fontawesome-free/css/all.min.css">
 
     <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="{{ asset('public/admin') }}/packages/datatables-responsive/css/responsive.bootstrap4.min.css">
 
     <!-- CodeMirror -->
     <!-- <link rel="stylesheet" href="{{ asset('public/admin') }}/packages/codemirror/codemirror.css">
@@ -45,7 +46,9 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars">
+
+                        </i></a>
                 </li>
             </ul>
 
@@ -64,6 +67,7 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -73,64 +77,39 @@
                         @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                       @foreach($newmesssage as $message)
-                       <a href="{{ route('contacet.viewmessage', ['id'=>$message->id] ) }}" class="dropdown-item">
+                        @foreach($newmesssage as $message)
+                        <a href="{{ route('contacet.viewmessage', ['id'=>$message->id] ) }}" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="@if( $message->image ) {{ asset('/storage/message')}} @else{{ asset('website/images/user.svg') }} @endif"
-                            alt=""
-                                    class="img-size-50 mr-3 img-circle">
+                                    alt="" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
-                                       {{ $message->name }}
-                                        <span class="float-right text-sm text-secondary"><i class="fas fa-star"></i></span>
+                                        {{ $message->name }}
+                                        <span class="float-right text-sm text-secondary"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
-                                    <p class="text-sm">{{ (Str::limit($message->subject, 10)) }}</b> - {{ ucfirst(strip_tags(Str::limit($message->message, 10))) }}..</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ $message->created_at->format('h:m')}} Hours Ago</p>
+                                    <p class="text-sm">{{ (Str::limit($message->subject, 10)) }}</b> -
+                                        {{ ucfirst(strip_tags(Str::limit($message->message, 10))) }}..</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>
+                                        {{ $message->created_at->format('h:m')}} Hours Ago</p>
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                       @endforeach
-                       
-                       @if($newmesssage)
-                       <a href="{{route('contacet.index') }}" class="dropdown-item dropdown-footer">See All Messages</a>
+                        @endforeach
+
+                        @if($newmesssage)
+                        <a href="{{route('contacet.index') }}" class="dropdown-item dropdown-footer">See All
+                            Messages</a>
                         @else
                         <span class="dropdown-item dropdown-footer">No new Messages</span>
                         @endif
-                      
-                      
+
+
                     </div>
                 </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <!-- user Dropdown Menu -->
                 @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -141,10 +120,20 @@
                 </li>
                 @endif
                 @else
+                
+                <li class="ml-2 nav-item">
+                    <!-- Brand Logo -->
+                    <a href="{{ route('user.profile') }}">
+                        <img height="30px" width="30px" class="rounded rounded-circle"
+                            src="{{ asset('/storage/user/') }}{{ '/'.Auth::user()->image }}" alt="">
+                        <!-- <i class="fa fa-home fa-2x"></i> -->
+                    </a>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ ucfirst(Auth::user()->name) }} <span class="caret"></span>
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -152,7 +141,7 @@
                                                      document.getElementById('logout-form').submit();">
                             <i class="fa fa-power-off mr-2"> </i> {{ __('Logout') }}
                         </a>
-                        
+
                         @if (Route::has('register'))
                         <a class="dropdown-item" href="{{ route('user.profile') }}">
                             <i class="fa fa-user mr-2"> </i>Profile
@@ -166,28 +155,11 @@
 
                 </li>
                 @endguest
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
-
-       @include('admin.includes.sidebar')
+        @include('admin.includes.sidebar')
         @yield('content')
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-
         <!-- Main Footer -->
         <footer class="main-footer">
             <!-- To the right -->
@@ -251,15 +223,14 @@
     $(function() {
         $('[data-toggle="tooltip"]').tooltip()
     });
-
     </script>
- <script>
-//  summernote
-      $('#description').summernote({
+    <script>
+    //  summernote
+    $('#description').summernote({
         placeholder: 'Write a Description here...',
         tabsize: 2,
         height: 100
-      });
+    });
     </script>
 
 

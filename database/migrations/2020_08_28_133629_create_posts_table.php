@@ -21,7 +21,6 @@ class CreatePostsTable extends Migration
             $table->longtext('description');
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->softDeletes();
             $table->timestamps();
         });
         Schema::create('post_tag', function (Blueprint $table) {

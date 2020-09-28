@@ -70,8 +70,8 @@
                     </a>
                     <div class="excerpt">
                         <span
-                            class="post-category text-white bg-secondary mb-3">{{ ucfirst($post->category->name) }}</span>
-
+                            class="post-category text-white bg-secondary mb-3">
+                            @if(isset($post->category->name)) {{ ucfirst($post->category->name) }} @else {{'No category'}} @endif 
                         <h2><a href="{{ route('website.post', ['slug'=>$post->slug]) }}">{{ $post->title}}</a></h2>
                         <div class="post-meta align-items-center text-left clearfix">
                             <!-- author-figure -->
@@ -119,7 +119,7 @@
                 @foreach($footerLastPost as $post)
                 <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="hentry img-2 v-height mb30 gradient"
                     style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
-                    <span class="post-category text-white bg-success">{{ $post->category->name }}</span>
+                    <span class="post-category text-white bg-success">@if(isset($post->category->name)) {{ ucfirst($post->category->name) }} @else {{'No category'}} @endif </span>
                     <div class="text text-sm">
                         <h2>{{ $post->title }}</h2>
                         <span>{{ $post->created_at->format('F d, Y') }}</span>
@@ -131,7 +131,7 @@
                 @foreach($footerMiddlePost as $post)
                     <a href="{{ route('website.post', ['slug'=>$post->slug]) }}" class="hentry v-height img-2  ml-auto gradient"
                         style="background-image:url('{{asset('public/storage/post') }}/{{ $post->image }}');">
-                        <span class="post-category text-white bg-primary">{{ $post->category->name }}</span>
+                        <span class="post-category text-white bg-primary">@if(isset($post->category->name)) {{ ucfirst($post->category->name) }} @else {{'No category'}} @endif </span>
                         <div class="text text-sm">
                             <h2>{{ $post->title }}</h2>
                             <span>{{ $post->created_at->format('F d, Y') }}</span>

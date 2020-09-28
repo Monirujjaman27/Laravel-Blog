@@ -46,7 +46,7 @@
 
                     <div class="col-4 site-logo">
                         <a href="{{ route('website.index') }}" class="text-black h2 mb-0">
-                            <img class="h-25 w-25" src="{{ asset('public/storage/logo') }}{{ '/'.$settings->logo }}"
+                            <img class="h-25 w-25" src="@if(isset($settings->logo )) {{ asset('public/storage/logo') }}{{ '/'.$settings->logo }}"
                                 alt="{{ $settings->logo }}"></a>
                     </div>
 

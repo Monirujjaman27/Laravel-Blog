@@ -69,7 +69,7 @@
                 <!-- sidebar authore bio area -->
                 <div class="sidebar-box">
                     <div class="bio text-center">
-                        <img src="@if( $post->user->image ) {{ asset('public/storage/user').'/'.$post->user->image }} @else{{ asset('website/images/user.svg') }} @endif"
+                        <img src="@if( $post->user->image ) {{ asset('/storage/user').'/'.$post->user->image }} @else{{ asset('/website/images/user.svg') }} @endif"
                             alt="{{ $post->user->image }}" class="img-fluid mb-5">
                         <div class="bio-body">
                             <h2>{{ $post->user->name }}</h2>
@@ -82,6 +82,7 @@
                                 <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
                             </p>
                         </div>
+                    
                     </div>
                 </div>
                 <!-- END sidebar-box -->

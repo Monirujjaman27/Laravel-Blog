@@ -59,11 +59,11 @@
                                             <td>{{ ucfirst($allpost->title) }}</td>
                                             <td data-toggle="tooltip" title="{{ $allpost->title }}" >
                                                 <img class="img-fluid img-cover" height="40px" width="40px"
-                                                    src="{{ asset('public/storage/post').'/'.$allpost->image }}"
+                                                    src="{{ asset('/storage/post').'/'.$allpost->image }}"
                                                     alt="{{ $allpost->image }}">
                                             </td>
                                             <td>{{ ucfirst(strip_tags(Str::limit($allpost->description, 50))) }}</td>
-                                            <td>{{ ucfirst($allpost->category->name) }} </td>
+                                            <td>@if(isset($allpost->category->name)) {{ ucfirst($allpost->category->name) }} @else {{'No category'}} @endif </td>
                                             <td>{{ $allpost->slug }} </td>
                                             <td>
                                                 @foreach($allpost->tags as $tags)

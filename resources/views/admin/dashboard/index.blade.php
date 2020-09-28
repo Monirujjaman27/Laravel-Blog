@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,7 +23,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{ $postCount }}</h3>
+                            <h3>{{ $postCount ?? '' }}</h3>
 
                             <p>Posts</p>
                         </div>
@@ -117,10 +118,10 @@
                                         <td>{{ ucfirst($allpost->title) }}</td>
                                         <td data-toggle="tooltip" title="{{ $allpost->title }}">
                                             <img class="img-fluid img-cover img-border" height="40px" width="40px"
-                                                src="{{ asset('public/storage/post').'/'.$allpost->image }}"
+                                                src="@if(isset($allpost->image)){{ asset('/storage/post').'/'.$allpost->image }} @else{{ 'No Image'}} @endif"
                                                 alt="{{ $allpost->image }}">
                                         </td>
-                                        <td>{{ ucfirst($allpost->category->name) }} </td>
+                                        <td>@if(isset($allpost->category->name)){{ ucfirst($allpost->category->name) }} @else{{ 'No category' }} @endif </td>
                                         <td>{{ $allpost->slug }} </td>
                                         <td>
                                             @foreach($allpost->tags as $tags)
@@ -128,7 +129,7 @@
                                             @endforeach
                                         </td>
                                         <td>{{ $allpost->created_at->format('j - m - Y') }}</td>
-                                        <td>{{ ucfirst($allpost->user->name) }}</span></td>
+                                        <td> @if(isset($allpost->user->name)) {{ ucfirst($allpost->user->name) }} @else {{ 'unknown' }} @endif</td>
                                         <td class="d-flex">
                                             <a data-toggle="tooltip" title="Edit Post"
                                                 class="btn badge badge-warning btnEdit"

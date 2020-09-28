@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Category;
-use App\Tag;
-use App\Brand;
-use App\Post;
+use App\tag;
+use App\post;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\str;
@@ -18,8 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allpost = Post::orderBy('created_at', 'DESC')->paginate(20);
-        $tags = Tag::orderBy('id', 'desc')->paginate(20);
+        $allpost = post::orderBy('created_at', 'DESC')->paginate(20);
+        $tags = tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
 
         return view('admin.posts.index', compact(['allpost', 'category', 'tags']));
@@ -34,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $tags = Tag::orderBy('id', 'desc')->paginate(20);
+        $tags = tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
         return view('admin.posts.addPost', compact(['category', 'tags']));
     }
@@ -55,7 +54,7 @@ class PostController extends Controller
             'category_id' => 'required',
             ]);
 
-        $post = Post::create([
+        $post = post::create([
        'title'       => ucfirst($request->title),
        'image'       => ' ',
        'slug'        => str::slug($request->title, '-'),
@@ -97,7 +96,7 @@ class PostController extends Controller
      */
     public function edit(post $post)
     {
-        $tags = Tag::orderBy('id', 'desc')->paginate(20);
+        $tags = tag::orderBy('id', 'desc')->paginate(20);
         $category = Category::orderBy('id', 'desc')->paginate(20);
         return view('admin.Posts.edit', compact(['post', 'category', 'tags']));
     }
@@ -131,13 +130,13 @@ class PostController extends Controller
         if($request->hasFile('image')){
             $image = $request->image;
             $newImgName = time().'-'.$image->getClientOriginalName();
-            unlink('storage/post/'.$unlinkImgName);
-            $image->move('storage/post/',$newImgName);
+            unlink('public/storage/post/'.$unlinkImgName);
+            $image->move('public/storage/post/',$newImgName);
             $post->image = $newImgName;
         }
         $post->save();
-        Session::flash('success', 'Post Updated Successfully');
         return redirect()->route('post.index');
+        Session::flash('success', 'Post Updated Successfully');
     }
 
     /**
@@ -148,7 +147,7 @@ class PostController extends Controller
      */
 
     public function delete($id){ 
-      $delpostId = Post::find($id);
+      $delpostId = post::find($id);
       
       $delpostId->delete();
       return ['success' => true, 'message'=>'Delete successfully'];

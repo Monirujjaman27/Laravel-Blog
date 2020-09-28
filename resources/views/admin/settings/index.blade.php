@@ -61,7 +61,7 @@
                                         <label for="facebook">Facebook </label>
                                         <input id="facebook" class="form-control" type="url" name="facebook"
                                             value="{{ $frontendSetting->facebook }}" placeholder="Enter facebook url"
-                                            value="">
+                                            >
                                         <small class="text-secondary">[Ex: https://www.facebook.com/example. ]</small>
                                     </div>
 
@@ -72,7 +72,7 @@
                                         <label for="twitter">Twitter </label>
                                         <input id="twitter" class="form-control" type="url" name="twitter"
                                             value="{{ $frontendSetting->twitter }}" placeholder="Enter twitter url"
-                                            value="">
+                                            >
                                         <small class="text-secondary">[Ex: https://www.twitter.com/example. ]</small>
                                     </div>
 
@@ -83,7 +83,7 @@
                                         <label for="instagram">Instagram </label>
                                         <input id="instagram" class="form-control" type="url" name="instagram"
                                             value="{{ $frontendSetting->instagram }}" placeholder="Enter Instagram url"
-                                            value="">
+                                            >
                                         <small class="text-secondary">[Ex: https://www.instagram.com/example. ]</small>
                                     </div>
 
@@ -94,7 +94,7 @@
                                         <label for="gmail">Gmail </label>
                                         <input id="gmail" class="form-control" type="email" name="gmail"
                                             value="{{ $frontendSetting->gmail }}" placeholder="Enter Gmail url"
-                                            value="">
+                                            >
                                         <small class="text-secondary">[Ex: https://www.gmail.com/example. ]</small>
                                     </div>
 
@@ -105,7 +105,7 @@
                                         <label for="gmail">Phone No</label>
                                         <input id="phone" class="form-control" type="phone" name="phone"
                                             value="{{ $frontendSetting->phone }}" placeholder="Enter phone"
-                                            value="">
+                                            >
                                         <small class="text-secondary">[Ex: +880******** ]</small>
                                     </div>
 

@@ -11,13 +11,12 @@ class DashboardController extends Controller
 {
 
 
-
-public function index (){
+public function index(){
     $postCount = post::all()->count();
     $categoryCount = Category::all()->count();
+    $allpost = post::take(10)->get();
     $tagCount = tag::all()->count();
     $userCount = User::all()->count();
-    $allpost = post::take(10)->get();
     return view('admin.dashboard.index', compact(['postCount', 'categoryCount', 'tagCount', 'userCount', 'allpost']));
 }
 

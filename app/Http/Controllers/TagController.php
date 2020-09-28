@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $allTags = Tag::orderBy('created_at', 'DESC')->paginate(20);
+        $allTags = tag::orderBy('created_at', 'DESC')->paginate(20);
       return view('admin.tags.index', compact('allTags'));
     }
 
@@ -42,7 +42,7 @@ class TagController extends Controller
         'name' => 'required|unique:tags,name',
     ]);
 
-    $tag = Tag::create([
+    $tag = tag::create([
        'name' => ucfirst($request->name),
        'slug' => str::slug($request->name, '-'),
        'description' => $request->description,

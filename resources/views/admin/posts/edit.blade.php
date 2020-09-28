@@ -33,8 +33,8 @@
                             <a href="{{ route('post.index') }} " class="badge badge-info p-2">Back Post
                                 Page</a>
                             
-                            <a href="{{ route('post.create') }} " class="float-right badge badge-info p-2">Create a Post
-                                Page</a>
+                            <a href="{{ route('post.create') }} " class="float-right badge badge-info p-2">Create a new Post
+                                </a>
                         </div>
                         <!-- /.card-header -->
                         <form action="{{ route('post.update', [$post->id]) }}" method="POST"
@@ -54,7 +54,7 @@
                                     <select class="form-control" name="category_id" id="category">
                                         @foreach($category as $category)
                                         <option class="form-control" value="{{ $category->id }}"
-                                            {{ $post->category->id == $category->id ? 'selected="selected"' : '' }}>
+                                           @if(isset($post->category->id)) {{ $post->category->id == $category->id ? 'selected="selected"' : '' }} @else {{ 'Select Category' }} @endif>
                                             {{ ucfirst($category->name) }}
                                         </option>
 
